@@ -337,7 +337,7 @@ body::before {
     width: 100%;
     padding: 16px 0 24px;
     text-align: center;
-    transform: translateX(-25px);
+    transform: translateX(-42px);
     margin: 0 auto;
   }
 
@@ -358,7 +358,7 @@ body::before {
   }
 
   .skills-title {
-    transform: translateX(-2px);
+    transform: translateX(-17px);
   }
 
   .skills h4 {
