@@ -23,6 +23,11 @@ body {
   position: relative;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -169,83 +174,179 @@ body::before {
 }
 
 @media (max-width: 720px) {
+  .hero-content {
+    width: 100%;
+    padding: 24px 18px 36px;
+  }
+
   .hero-body {
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  .profile-card {
-    width: 220px;
-    height: 220px;
-    transform: translateX(0) translateY(0) perspective(900px);
-  }
-
-  .profile-card:hover {
-    transform: translateX(0) translateY(-6px) perspective(900px) rotateY(-4deg);
-  }
-
-  .cta-buttons .ghost {
-    padding: 12px 14px;
-    min-width: 140px;
-    font-size: 0.95rem;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero {
-    padding: 8vh 6vw 10vh;
-  }
-}
-
-@media (max-width: 720px) {
-  .cta-buttons {
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6vh 4vw 8vh;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 16px 14px 32px;
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2;
+    flex: 1 1 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 9vw, 3.8rem);
+  }
+
+  .hero h2 {
+    font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+    white-space: normal;
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 12px;
-    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .cta-buttons .ghost {
+    padding: 14px 16px;
+    min-width: 150px;
+    font-size: 1rem;
+  }
+
+  .profile-card {
+    order: 1;
+    width: 300px;
+    height: 320px;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .profile-card:hover {
+    transform: none;
+  }
+
+  .hero {
+    padding: 8vh 4vw 10vh;
   }
 
   .projects-carousel {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    padding: 0 28px;
   }
 
   .carousel-track {
-    height: 420px;
+    height: 50vh;
+    max-height: 420px;
+    overflow: visible;
+    width: 100%;
   }
 
   .projects-carousel.horizontal .carousel-track {
-    height: 480px;
+    height: 50vh;
   }
 
   .projects-carousel.vertical .carousel-track {
-    height: 520px;
+    height: 78vh;
+    max-height: 720px;
+    overflow: visible;
   }
 
   .project-card {
-    width: 92%;
+    width: 86vw;
     max-width: none;
+    height: 50vh;
+    position: relative;
   }
 
   .project-card.tall {
-    width: 70%;
-    max-width: 280px;
+    width: 90vw;
+    max-width: none;
+    height: 78vh;
   }
 
   .projects-carousel.vertical .project-card.tall {
-    width: 70%;
-    max-width: 280px;
+    width: 90vw;
+    max-width: none;
+    height: 78vh;
   }
 
   .projects-carousel.horizontal .project-card {
-    width: 92%;
+    width: 86vw;
   }
 
   .project-card.left,
   .project-card.right {
-    transform: translateX(0) scale(0.8);
-    opacity: 0.35;
+    transform: translateX(-8%) scale(0.8);
+    opacity: 0.25;
+  }
+
+  .project-card.right {
+    transform: translateX(8%) scale(0.8);
+  }
+
+  .projects-carousel .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    z-index: 6;
+    pointer-events: auto;
+    display: grid;
+    place-items: center;
+    line-height: 1;
+    font-size: 1.4rem;
+  }
+
+  .projects-carousel .carousel-arrow.prev {
+    left: 8px;
+  }
+
+  .projects-carousel .carousel-arrow.next {
+    right: 8px;
   }
 
   .projects {
-    padding: 80px 4vw 100px;
+    padding: 60px 4vw 80px;
+  }
+
+  .projects-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 0 24px;
+    text-align: center;
+    transform: translateX(-25px);
+    margin: 0 auto;
+  }
+
+  .projects h3 {
+    font-size: clamp(2.8rem, 10vw, 3.6rem);
+  }
+
+  .projects-eyebrow {
+    font-size: 0.85rem;
   }
 
   .accounts {
@@ -256,8 +357,12 @@ body::before {
     padding: 60px 4vw 100px;
   }
 
+  .skills-title {
+    transform: translateX(-2px);
+  }
+
   .skills h4 {
-    font-size: clamp(2.8rem, 10vw, 3.4rem);
+    font-size: clamp(2.6rem, 9vw, 3.2rem);
   }
 
   .skills-list {
@@ -286,6 +391,18 @@ body::before {
     width: 52px;
     height: 52px;
   }
+
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .intro {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    max-width: 92%;
+    margin-top: 12px;
+  }
 }
 
 .projects {
@@ -300,6 +417,7 @@ body::before {
   padding: 24px 32px;
   position: relative;
   z-index: 1;
+  margin: 0 auto;
 }
 
 .projects-eyebrow {
@@ -688,3 +806,4 @@ body::before {
   font-size: 0.85rem;
   letter-spacing: 0.03em;
 }
+
